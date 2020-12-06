@@ -25,7 +25,7 @@ jobs:
       - run: yarn ng test --watch=false
       - run:
           command: |
-            docker build -t vktest.azurecr.io/hello:1.0
+            docker build -t vktest.azurecr.io/hello:1.0 .
       - run:
          command: |
             docker login --usernane $DOCKER_USER --password $DOCKER_PASS vktest.azurecr.io
