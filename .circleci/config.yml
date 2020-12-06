@@ -11,5 +11,17 @@ build:
   steps:
     -checkout
 
+  -  run: yarn install
+  - save_cache:
+    paths:
+      - node_modules
+    key: v1-dependencies-{{ checksum : "package.json" }}
+
+       
+  -  run: yarn ng build --prod
+  -  run: yarn ng test  --single-run
+
+  
+
      
     
