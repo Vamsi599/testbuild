@@ -6,7 +6,6 @@ jobs:
     docker: 
       - image: circleci/node:15-browsers
     steps:
-
       - checkout
       - setup-remote-docker
 
@@ -27,8 +26,10 @@ jobs:
       - run:
         command: |
           docker build -t vktest.azurecr.io/hello:1.0
+      - run:
         command: |
           docker login --usernane $DOCKER_USER --password $DOCKER_PASS vktest.azurecr.io
+      - run:
         command: |
           docker push vktest.azurecr.io/hello:1.0
 
