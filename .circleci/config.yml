@@ -5,9 +5,9 @@ workflows:
   node-tests:
     jobs:
      - node/test
-build:
-  docker:
-     - image: circleci/node:15-browsers
+    build:
+      docker:
+        - image: circleci/node:15-browsers
   steps:
     -checkout
 
