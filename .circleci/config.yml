@@ -28,7 +28,7 @@ jobs:
             docker build -t vktest.azurecr.io/hello:1.0 .
       - run:
          command: |
-            docker login --usernane $DOCKER_USER --password $DOCKER_PASS vktest.azurecr.io
+            docker login --username $DOCKER_USER --password $DOCKER_PASS vktest.azurecr.io
       - run:
           command: |
             docker push vktest.azurecr.io/hello:1.0
