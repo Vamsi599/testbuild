@@ -25,6 +25,9 @@ jobs:
       - run: yarn ng test --watch=false
       - run:
           command: |
+            docker build --pull --rm -f "Dockerfile" -t hello:1.0 "."
+      - run:
+          command: |
             docker build -t vktest.azurecr.io/hello:1.0 .
       - run:
          command: |
