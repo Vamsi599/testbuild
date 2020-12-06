@@ -5,18 +5,11 @@ workflows:
   node-tests:
     jobs:
      - node/test
-jobs:
-    build:
-      docker:
-        - image: circleci/node:15-browsers
+
   steps:
     -checkout
 
   -  run: yarn install
-  - save_cache:
-    paths:
-      - node_modules
-    key: v1-dependencies-{{ checksum : "package.json" }}
 
        
   -  run: yarn ng build --prod
