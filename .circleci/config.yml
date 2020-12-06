@@ -22,5 +22,5 @@ jobs:
           key:  v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn ng build --prod
-      - run: yarn ng test --single-run
+      - run: yarn ng test 
 
