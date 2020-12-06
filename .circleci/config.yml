@@ -8,6 +8,7 @@ jobs:
     steps:
 
       - checkout
+      - setup-remote-docker
 
       - restore_cache:
           keys:
@@ -23,4 +24,11 @@ jobs:
 
       - run: yarn ng build --prod
       - run: yarn ng test --watch=false
+      - run:
+        command: |
+          docker build -t vktest.azurecr.io/hello:1.0
+        command: |
+          docker login --usernane $DOCKER_USER --password $DOCKER_PASS vktest.azurecr.io
+        command: |
+          docker push vktest.azurecr.io/hello:1.0
 
